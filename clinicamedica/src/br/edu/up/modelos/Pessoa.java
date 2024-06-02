@@ -2,14 +2,14 @@ package br.edu.up.modelos;
 
 public abstract class Pessoa {
     protected String nome;
-    protected String cpf;
-    protected String dataNasc;
+    protected String telefone;
+    protected String email;
     protected String endereco;
 
-    public Pessoa(String nome, String cpf, String dataNasc, String endereco) {
+    public Pessoa(String nome, String telefone, String email, String endereco) {
         this.nome = nome;
-        this.cpf = cpf;
-        this.dataNasc = dataNasc;
+        this.telefone = telefone;
+        this.email = email;
         this.endereco = endereco;
     }
 

@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.edu.up.modelos.Pessoa;
-// import br.edu.up.modelos.ClientePessoa;
+import br.edu.up.modelos.PessoaPaciente;
 
 public class GerenciadorDeArquivos {
 
     private String header = "";
-    private String nomeDoArquivo = "C:\\temp\\clientes.csv";
+    private String nomeDoArquivo = "C:\\temp\\pessoas.csv";
 
-    public List<Pessoa> getClientes() {
+    public List<Pessoa> getPessoas() {
 
-        List<Pessoa> listaDeClientes = new ArrayList<>();
+        List<Pessoa> listaDePessoas = new ArrayList<>();
 
         try {
             // LER UM ARQUIVO DE TEXTO
@@ -36,28 +36,25 @@ public class GerenciadorDeArquivos {
                 String[] dados = linha.split(";");
 
                 String nome = dados[0];
-                String cpf = dados[1];
-                String dataNasc = dados[2];
+                String telefone = dados[1];
+                String email = dados[2];
                 String endereco = dados[3];
-                String sus = dados[4];
-                // if (cpf != null && !cpf.equals("")) {
-                //     // pessoa
-                //     double peso = Double.parseDouble(dados[6]);
-                //     double altura = Double.parseDouble(dados[7]);
+                String cpf = dados[4];
+                 if (cpf != null && !cpf.equals("")) {
+                    //Paciente
+                     String sus = dados[5];
 
-                //     Cliente cliente = new ClientePessoa(nome, telefone, email,
-                //             credito, emprestado, cpf, peso, altura);
-                //     listaDeClientes.add(cliente);
+                     Pessoa pessoa = new PessoaPaciente(nome, telefone, email,
+                             endereco, cpf, sus);
+                     listaDePessoas.add(pessoa);
+                 }
+                //  else if (cnpj != null && !cnpj.equals("")) {
+                //     //Fornecedor
 
-                // } else {
-                //     // empresa
-                //     String cnpj = dados[8];
-                //     String inscricao = dados[9];
-                //     int ano = Integer.parseInt(dados[10]);
+                //  }else {
+                //     //Medico
+                //  }
 
-                //     Cliente cliente = new ClienteEmpresa(nome, telefone, email, cnpj, inscricao, ano);
-                //     listaDeClientes.add(cliente);
-                // }
             }
 
             leitor.close();
@@ -65,10 +62,10 @@ public class GerenciadorDeArquivos {
             System.out.println("Arquivo não encontrado! " + e.getMessage());
         }
 
-        return listaDeClientes;
+        return listaDePessoas;
     }
 
-    public boolean gravar(List<Pessoa> clientes) {
+    public boolean gravar(List<Pessoa> pessoas) {
 
         try {
             // GRAVAR UM ARQUIVO DE TEXTO
@@ -77,8 +74,8 @@ public class GerenciadorDeArquivos {
 
             gravador.println(header);
 
-            for (Pessoa cliente : clientes) {
-                gravador.println(cliente.toCSV());
+            for (Pessoa pessoa : pessoas) {
+                gravador.println(pessoa.toCSV());
             }
             gravador.close();
 

@@ -11,37 +11,37 @@ public class ControleDePessoas {
 
     private GerenciadorDeArquivos gArquivos = new GerenciadorDeArquivos();
 
-    private List<Pessoa> clientes;
+    private List<Pessoa> pessoas;
 
     public ControleDePessoas() {
-        this.clientes = gArquivos.getClientes();
+        this.pessoas = gArquivos.getPessoas();
     }
 
-    public void incluir(Pessoa cliente) {
-        this.clientes.add(cliente);
+    public void incluir(Pessoa pessoa) {
+        this.pessoas.add(pessoa);
     }
 
-    public List<Pessoa> getClientes() {
-        return clientes;
+    public List<Pessoa> getPessoas() {
+        return pessoas;
     }
-
+////
     public PessoaPaciente getPessoa(String sus) {
 
-        List<PessoaPaciente> pessoas = getClientesPessoa();
-        for (PessoaPaciente clientePessoa : pessoas) {
-            if (clientePessoa.getSus().equals(sus)) {
-                return clientePessoa;
+        List<PessoaPaciente> pessoas = getPessoasPaciente();
+        for (PessoaPaciente pessoaPaciente : pessoas) {
+            if (pessoaPaciente.getSus().equals(sus)) {
+                return pessoaPaciente;
             }
         }
         return null;
     }
 
-    public List<PessoaPaciente> getClientesPessoa() {
+    public List<PessoaPaciente> getPessoasPaciente() {
         List<PessoaPaciente> lista = new ArrayList<>();
-        for (Pessoa cliente : clientes) {
-            if (cliente instanceof PessoaPaciente) {
-                PessoaPaciente cp = (PessoaPaciente) cliente;
-                lista.add(cp);
+        for (Pessoa pessoa : pessoas) {
+            if (pessoa instanceof PessoaPaciente) {
+                PessoaPaciente pp = (PessoaPaciente) pessoa;
+                lista.add(pp);
             }
         }
         return lista;
@@ -50,7 +50,7 @@ public class ControleDePessoas {
     public boolean gravarDados() {
         // boolean retorno = gArquivos.gravar(clientes);
         // return retorno;
-        return gArquivos.gravar(clientes);
+        return gArquivos.gravar(pessoas);
     }
 
 }
