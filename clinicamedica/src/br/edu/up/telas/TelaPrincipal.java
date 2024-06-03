@@ -4,8 +4,9 @@ import java.util.List;
 
 import br.edu.up.controles.ControleDePessoas;
 import br.edu.up.util.Prompt;
-import br.edu.up.modelos.Pessoa;
-import br.edu.up.modelos.PessoaPaciente;
+import br.edu.up.modelos.Paciente;
+import br.edu.up.modelos.Medico;
+import br.edu.up.modelos.Fornecedor;
 
 public class TelaPrincipal {
 
@@ -16,99 +17,171 @@ public class TelaPrincipal {
         int op = 0;
 
         do {
-
             Prompt.limparConsole();
             Prompt.separador();
             Prompt.imprimir("MENU PRINCIPAL");
             Prompt.separador();
 
-            Prompt.imprimir("1. Incluir Paciente"); //implementado por Mikael
+            Prompt.imprimir("1. Incluir Paciente");
             Prompt.imprimir("2. Incluir Médico");
-            Prompt.imprimir("3. Incluir Fabricante");
-            Prompt.imprimir("4. Mostrar dados Paciente"); //implemantado por Mikael
+            Prompt.imprimir("3. Incluir Fornecedor");
+            Prompt.imprimir("4. Mostrar dados Paciente");
             Prompt.imprimir("5. Mostrar dados Médico");
-            Prompt.imprimir("6. Mostrar dados Fabricante");
-            Prompt.imprimir("7. Mostrar todos as pessoas");
-            
+            Prompt.imprimir("6. Mostrar dados Fornecedor");
+            Prompt.imprimir("7. Mostrar todas as pessoas");
 
-            Prompt.imprimir("8. Incluir Medicamento");
-            Prompt.imprimir("9. Incluir Agendamento");
-            Prompt.imprimir("10. Incluir Historico");
-            Prompt.imprimir("11. Mostrar dados Medicamento");
-            Prompt.imprimir("12. Mostrar dados Agendamento");
-            Prompt.imprimir("13. Mostrar dados Historico");
-
-            Prompt.imprimir("14. Sair");
+            Prompt.imprimir("8. Sair");
 
             op = Prompt.lerInteiro();
 
             switch (op) {
                 case 1:
-                    // 1. Incluir PACIENTE
-                    mostrarMenuIncluirPessoas();
+                    mostrarMenuIncluirPaciente();
                     break;
-
+                case 2:
+                    mostrarMenuIncluirMedico();
+                    break;
+                case 3:
+                    mostrarMenuIncluirFornecedor();
+                    break;
                 case 4:
-                    // 4. Mostrar dados Pacientes
-                    Prompt.separador();
-                    Prompt.imprimir("LISTA DE PACIENTES");
-                    List<PessoaPaciente> listaPessoas = controle.getPessoasPaciente();
-                    for (PessoaPaciente clientePessoa : listaPessoas) {
-                        Prompt.imprimir(clientePessoa);
-                    }
-                    Prompt.pressionarEnter();
+                    mostrarDadosPacientes();
+                    break;
+                case 5:
+                    mostrarDadosMedicos();
+                    break;
+                case 6:
+                    mostrarDadosFornecedores();
                     break;
                 case 7:
-                    // 7. Mostrar todas as pessoas
-                    Prompt.separador();
-                    Prompt.imprimir("LISTA DE PESSOAS");
-                    List<Pessoa> pessoas = controle.getPessoas();
-                    for (Pessoa pessoa : pessoas) {
-                        Prompt.imprimir(pessoa);
-                    }
+                    mostrarTodasPessoas();
+                    break;
+                case 8:
+                    controle.gravarDados();
+                    Prompt.imprimir("Saindo...");
+                    break;
+                default:
+                    Prompt.imprimir("Opção inválida!");
                     Prompt.pressionarEnter();
                     break;
-
             }
+        } while (op != 8);
+    }
 
-        } while (op != 14);
+    private void mostrarMenuIncluirPaciente() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("INCLUIR PACIENTE");
+        Prompt.separador();
 
-        if (controle.gravarDados()) {
-            Prompt.imprimir("Dados gravados com sucesso!");
-        } else {
-            Prompt.imprimir("Erro na gravação do arquivo!");
+        String nome = Prompt.lerLinha("Nome: ");
+        String telefone = Prompt.lerLinha("Telefone: ");
+        String email = Prompt.lerLinha("Email: ");
+        String endereco = Prompt.lerLinha("Endereço: ");
+        String cpf = Prompt.lerLinha("CPF: ");
+        String sus = Prompt.lerLinha("SUS: ");
+
+        Paciente paciente = new Paciente(nome, telefone, email, endereco, cpf, sus);
+        controle.incluir(paciente);
+
+        Prompt.imprimir("Paciente incluído com sucesso!");
+        Prompt.pressionarEnter();
+    }
+
+    private void mostrarMenuIncluirMedico() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("INCLUIR MÉDICO");
+        Prompt.separador();
+
+        String nome = Prompt.lerLinha("Nome: ");
+        String telefone = Prompt.lerLinha("Telefone: ");
+        String email = Prompt.lerLinha("Email: ");
+        String endereco = Prompt.lerLinha("Endereço: ");
+        String CRM = Prompt.lerLinha("CRM: ");
+        String CPF = Prompt.lerLinha("CPF: ");
+        String Especialidade = Prompt.lerLinha("Especialidade: ");
+
+        Medico medico = new Medico(nome, telefone, email, endereco, CRM, CPF, Especialidade);
+        controle.incluir(medico);
+
+        Prompt.imprimir("Médico incluído com sucesso!");
+        Prompt.pressionarEnter();
+    }
+
+    private void mostrarMenuIncluirFornecedor() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("INCLUIR FORNECEDOR");
+        Prompt.separador();
+
+        String nome = Prompt.lerLinha("Nome: ");
+        String telefone = Prompt.lerLinha("Telefone: ");
+        String email = Prompt.lerLinha("Email: ");
+        String endereco = Prompt.lerLinha("Endereço: ");
+        String CNPJ = Prompt.lerLinha("CNPJ: ");
+        String Marca = Prompt.lerLinha("Marca: ");
+
+        Fornecedor fornecedor = new Fornecedor(nome, telefone, email, endereco, CNPJ, Marca);
+        controle.incluir(fornecedor);
+
+        Prompt.imprimir("Fornecedor incluído com sucesso!");
+        Prompt.pressionarEnter();
+    }
+
+    private void mostrarDadosPacientes() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("LISTA DE PACIENTES");
+        Prompt.separador();
+
+        List<Paciente> listaPacientes = controle.getPacientes();
+        for (Paciente paciente : listaPacientes) {
+            Prompt.imprimir(paciente);
         }
-        Prompt.imprimir("Programa encerrado!");
 
+        Prompt.pressionarEnter();
     }
 
-
-    private void mostrarMenuIncluirPessoas() {
-
+    private void mostrarDadosMedicos() {
+        Prompt.limparConsole();
         Prompt.separador();
-        Prompt.imprimir("MENU INCLUIR PESSOA");
+        Prompt.imprimir("LISTA DE MÉDICOS");
         Prompt.separador();
 
-        Prompt.imprimir("Digite o nome;");
-        String nome = Prompt.lerLinha();
+        List<Medico> listaMedicos = controle.getMedicos();
+        for (Medico medico : listaMedicos) {
+            Prompt.imprimir(medico);
+        }
 
-        Prompt.imprimir("Digite o telefone;");
-        String telefone = Prompt.lerLinha();
-
-        Prompt.imprimir("Digite o email;");
-        String email = Prompt.lerLinha();
-
-        Prompt.imprimir("Digite o endereco;");
-        String endereco = Prompt.lerLinha();
-
-        Prompt.imprimir("Digite o CPF;");
-        String cpf = Prompt.lerLinha();
-
-        Prompt.imprimir("Digite o codigo SUS;");
-        String sus = Prompt.lerLinha();
-
-        PessoaPaciente pessoaPaciente = new PessoaPaciente(nome, telefone, email, endereco, cpf ,sus);
-        controle.incluir(pessoaPaciente);
+        Prompt.pressionarEnter();
     }
 
+    private void mostrarDadosFornecedores() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("LISTA DE FORNECEDORES");
+        Prompt.separador();
+
+        List<Fornecedor> listaFornecedores = controle.getFornecedores();
+        for (Fornecedor fornecedor : listaFornecedores) {
+            Prompt.imprimir(fornecedor);
+        }
+
+        Prompt.pressionarEnter();
+    }
+
+    private void mostrarTodasPessoas() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("LISTA DE TODAS AS PESSOAS");
+        Prompt.separador();
+
+        List<Object> listaPessoas = controle.getPessoas();
+        for (Object pessoa : listaPessoas) {
+            Prompt.imprimir(pessoa);
+        }
+
+        Prompt.pressionarEnter();
+    }
 }
