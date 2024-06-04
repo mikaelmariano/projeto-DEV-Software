@@ -28,9 +28,7 @@ public class TelaPrincipal {
             Prompt.imprimir("4. Mostrar dados Paciente");
             Prompt.imprimir("5. Mostrar dados Médico");
             Prompt.imprimir("6. Mostrar dados Fornecedor");
-            Prompt.imprimir("7. Mostrar todas as pessoas");
-
-            Prompt.imprimir("8. Sair");
+            Prompt.imprimir("7. Sair");
 
             op = Prompt.lerInteiro();
 
@@ -54,9 +52,6 @@ public class TelaPrincipal {
                     mostrarDadosFornecedores();
                     break;
                 case 7:
-                    mostrarTodasPessoas();
-                    break;
-                case 8:
                     controle.gravarDados();
                     Prompt.imprimir("Saindo...");
                     break;
