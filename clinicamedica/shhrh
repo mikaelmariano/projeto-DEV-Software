@@ -1,0 +1,33 @@
+//AGENDAMENTO: 
+
+    private void mostrarMenuIncluirAgendamento() {
+    Prompt.limparConsole();
+    Prompt.separador();
+    Prompt.imprimir("INCLUIR AGENDAMENTO");
+    Prompt.separador();
+
+    String paciente = Prompt.lerLinha("Nome do Paciente: ");
+    String medico = Prompt.lerLinha("Nome do Médico: ");
+    String dataHoraStr = Prompt.lerLinha("Data e Hora (formato: yyyy-MM-ddTHH:mm): ");
+    LocalDateTime dataHora = LocalDateTime.parse(dataHoraStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+    Agendamento agendamento = new Agendamento(paciente, medico, dataHora);
+    controleAgendamentos.incluirAgendamento(agendamento); 
+
+    Prompt.imprimir("Agendamento incluído com sucesso!");
+    Prompt.pressionarEnter();
+    }
+
+    private void mostrarAgendamentos() {
+    Prompt.limparConsole();
+    Prompt.separador();
+    Prompt.imprimir("LISTA DE AGENDAMENTOS");
+    Prompt.separador();
+    }
+    
+    List<Agendamento> listaAgendamentos = controleAgendamentos.getAgendamentos(); // Correção aqui
+    for (Agendamento agendamento : listaAgendamentos) {
+        Prompt.imprimir(agendamento);
+    }
+
+    Prompt.pressionarEnter();

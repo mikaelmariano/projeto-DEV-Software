@@ -1,16 +1,21 @@
 package br.edu.up.telas;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.edu.up.controles.ControleDeAgendamentos;
 import br.edu.up.controles.ControleDePessoas;
 import br.edu.up.util.Prompt;
 import br.edu.up.modelos.Paciente;
 import br.edu.up.modelos.Medico;
+import br.edu.up.modelos.Agendamento;
 import br.edu.up.modelos.Fornecedor;
 
 public class TelaPrincipal {
 
     private ControleDePessoas controle = new ControleDePessoas();
+    private ControleDeAgendamentos controleAgendamentos = new ControleDeAgendamentos();
 
     public void mostrarMenuPrincipal() {
 
@@ -63,6 +68,8 @@ public class TelaPrincipal {
         } while (op != 8);
     }
 
+    //PACIENTE: 
+
     private void mostrarMenuIncluirPaciente() {
         Prompt.limparConsole();
         Prompt.separador();
@@ -82,6 +89,22 @@ public class TelaPrincipal {
         Prompt.imprimir("Paciente incluído com sucesso!");
         Prompt.pressionarEnter();
     }
+    
+    private void mostrarDadosPacientes() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("LISTA DE PACIENTES");
+        Prompt.separador();
+
+        List<Paciente> listaPacientes = controle.getPacientes();
+        for (Paciente paciente : listaPacientes) {
+            Prompt.imprimir(paciente);
+        }
+
+        Prompt.pressionarEnter();
+    }
+
+    //MEDICO:
 
     private void mostrarMenuIncluirMedico() {
         Prompt.limparConsole();
@@ -103,6 +126,23 @@ public class TelaPrincipal {
         Prompt.imprimir("Médico incluído com sucesso!");
         Prompt.pressionarEnter();
     }
+    
+    private void mostrarDadosMedicos() {
+        Prompt.limparConsole();
+        Prompt.separador();
+        Prompt.imprimir("LISTA DE MÉDICOS");
+        Prompt.separador();
+
+        List<Medico> listaMedicos = controle.getMedicos();
+        for (Medico medico : listaMedicos) {
+            Prompt.imprimir(medico);
+        }
+
+        Prompt.pressionarEnter();
+    }
+
+
+    //FORNECEDOR: 
 
     private void mostrarMenuIncluirFornecedor() {
         Prompt.limparConsole();
@@ -123,35 +163,7 @@ public class TelaPrincipal {
         Prompt.imprimir("Fornecedor incluído com sucesso!");
         Prompt.pressionarEnter();
     }
-
-    private void mostrarDadosPacientes() {
-        Prompt.limparConsole();
-        Prompt.separador();
-        Prompt.imprimir("LISTA DE PACIENTES");
-        Prompt.separador();
-
-        List<Paciente> listaPacientes = controle.getPacientes();
-        for (Paciente paciente : listaPacientes) {
-            Prompt.imprimir(paciente);
-        }
-
-        Prompt.pressionarEnter();
-    }
-
-    private void mostrarDadosMedicos() {
-        Prompt.limparConsole();
-        Prompt.separador();
-        Prompt.imprimir("LISTA DE MÉDICOS");
-        Prompt.separador();
-
-        List<Medico> listaMedicos = controle.getMedicos();
-        for (Medico medico : listaMedicos) {
-            Prompt.imprimir(medico);
-        }
-
-        Prompt.pressionarEnter();
-    }
-
+    
     private void mostrarDadosFornecedores() {
         Prompt.limparConsole();
         Prompt.separador();
@@ -166,17 +178,40 @@ public class TelaPrincipal {
         Prompt.pressionarEnter();
     }
 
-    private void mostrarTodasPessoas() {
-        Prompt.limparConsole();
-        Prompt.separador();
-        Prompt.imprimir("LISTA DE TODAS AS PESSOAS");
-        Prompt.separador();
+    //AGENDAMENTO:
 
-        List<Object> listaPessoas = controle.getPessoas();
-        for (Object pessoa : listaPessoas) {
-            Prompt.imprimir(pessoa);
-        }
+    private void mostrarMenuIncluirAgendamento() {
+    Prompt.limparConsole();
+    Prompt.separador();
+    Prompt.imprimir("INCLUIR AGENDAMENTO");
+    Prompt.separador();
 
-        Prompt.pressionarEnter();
+    String paciente = Prompt.lerLinha("Nome do Paciente: ");
+    String medico = Prompt.lerLinha("Nome do Médico: ");
+    String dataHoraStr = Prompt.lerLinha("Data e Hora (formato: yyyy-MM-ddTHH:mm): ");
+    LocalDateTime dataHora = LocalDateTime.parse(dataHoraStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+    Agendamento agendamento = new Agendamento(paciente, medico, dataHora);
+    controleAgendamentos.incluirAgendamento(agendamento); 
+
+    Prompt.imprimir("Agendamento incluído com sucesso!");
+    Prompt.pressionarEnter();
     }
+
+    private void mostrarAgendamentos() {
+    Prompt.limparConsole();
+    Prompt.separador();
+    Prompt.imprimir("LISTA DE AGENDAMENTOS");
+    Prompt.separador();
+    }
+    
+    // List<Agendamento> listaAgendamentos = controleAgendamentos.getAgendamentos(); 
+    // for (Agendamento agendamento : listaAgendamentos) {
+    //     Prompt.imprimir(agendamento);
+    // }
+
+    // Prompt.pressionarEnter();
+
+    
+
 }
