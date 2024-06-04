@@ -23,4 +23,7 @@ public class Medicamento extends Fornecedor {
         return "Medicamento [nomeMedicamento=" + nomeMedicamento + ", CNPJ=" + CNPJ + ", Marca=" + Marca + "]";
     }
 
+    public String toCSV() {
+        return nomeMedicamento + ";" + CNPJ + ";" + Marca;
+    }
 }
