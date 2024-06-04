@@ -19,11 +19,12 @@ public class Fornecedor {
     }
 
     public String toCSV() {
-        return nome + ";" + telefone + ";" + email + ";" + endereco + ";;;" + CNPJ + ";" + Marca;
+        return nome + ";" + telefone + ";" + email + ";" + endereco + ";" + CNPJ + ";" + Marca;
     }
 
     @Override
     public String toString() {
-        return "Nome: " + nome + ", Telefone: " + telefone + ", Email: " + email + ", Endereço: " + endereco + ", CNPJ: " + CNPJ + ", Marca: " + Marca;
+        return "Nome: " + nome + ", Telefone: " + telefone + ", Email: " + email + ", Endereço: " + endereco
+                + ", CNPJ: " + CNPJ + ", Marca: " + Marca;
     }
 }
