@@ -2,7 +2,8 @@ package br.edu.up.telas;
 
 import java.util.List;
 
-import br.edu.up.controles.ControleDePessoas;
+
+import br.edu.up.controles.PacienteController;
 import br.edu.up.util.Prompt;
 import br.edu.up.modelos.Paciente;
 import br.edu.up.modelos.Medico;
@@ -10,7 +11,7 @@ import br.edu.up.modelos.Fornecedor;
 
 public class TelaPrincipal {
 
-    private ControleDePessoas controle = new ControleDePessoas();
+   // private ControleDePessoas controle = new ControleDePessoas();
 
     public void mostrarMenuPrincipal() {
 
@@ -57,7 +58,7 @@ public class TelaPrincipal {
                     mostrarTodasPessoas();
                     break;
                 case 8:
-                    controle.gravarDados();
+                 //   controle.gravarDados();
                     Prompt.imprimir("Saindo...");
                     break;
                 default:
@@ -82,7 +83,7 @@ public class TelaPrincipal {
         String sus = Prompt.lerLinha("SUS: ");
 
         Paciente paciente = new Paciente(nome, telefone, email, endereco, cpf, sus);
-        controle.incluir(paciente);
+        PacienteController.incluir(paciente);
 
         Prompt.imprimir("Paciente incluído com sucesso!");
         Prompt.pressionarEnter();
@@ -103,7 +104,9 @@ public class TelaPrincipal {
         String Especialidade = Prompt.lerLinha("Especialidade: ");
 
         Medico medico = new Medico(nome, telefone, email, endereco, CRM, CPF, Especialidade);
-        controle.incluir(medico);
+        //controle.incluir(medico);
+
+        
 
         Prompt.imprimir("Médico incluído com sucesso!");
         Prompt.pressionarEnter();
@@ -123,7 +126,7 @@ public class TelaPrincipal {
         String Marca = Prompt.lerLinha("Marca: ");
 
         Fornecedor fornecedor = new Fornecedor(nome, telefone, email, endereco, CNPJ, Marca);
-        controle.incluir(fornecedor);
+        //controle.incluir(fornecedor);
 
         Prompt.imprimir("Fornecedor incluído com sucesso!");
         Prompt.pressionarEnter();
@@ -135,10 +138,10 @@ public class TelaPrincipal {
         Prompt.imprimir("LISTA DE PACIENTES");
         Prompt.separador();
 
-        List<Paciente> listaPacientes = controle.getPacientes();
-        for (Paciente paciente : listaPacientes) {
-            Prompt.imprimir(paciente);
-        }
+        // List<Paciente> listaPacientes = controle.getPacientes();
+        // for (Paciente paciente : listaPacientes) {
+        //     Prompt.imprimir(paciente);
+        // }
 
         Prompt.pressionarEnter();
     }
@@ -149,10 +152,10 @@ public class TelaPrincipal {
         Prompt.imprimir("LISTA DE MÉDICOS");
         Prompt.separador();
 
-        List<Medico> listaMedicos = controle.getMedicos();
-        for (Medico medico : listaMedicos) {
-            Prompt.imprimir(medico);
-        }
+        // List<Medico> listaMedicos = controle.getMedicos();
+        // for (Medico medico : listaMedicos) {
+        //     Prompt.imprimir(medico);
+        // }
 
         Prompt.pressionarEnter();
     }
@@ -163,10 +166,10 @@ public class TelaPrincipal {
         Prompt.imprimir("LISTA DE FORNECEDORES");
         Prompt.separador();
 
-        List<Fornecedor> listaFornecedores = controle.getFornecedores();
-        for (Fornecedor fornecedor : listaFornecedores) {
-            Prompt.imprimir(fornecedor);
-        }
+        // List<Fornecedor> listaFornecedores = controle.getFornecedores();
+        // for (Fornecedor fornecedor : listaFornecedores) {
+        //     Prompt.imprimir(fornecedor);
+        // }
 
         Prompt.pressionarEnter();
     }
@@ -177,10 +180,10 @@ public class TelaPrincipal {
         Prompt.imprimir("LISTA DE TODAS AS PESSOAS");
         Prompt.separador();
 
-        List<Object> listaPessoas = controle.getPessoas();
-        for (Object pessoa : listaPessoas) {
-            Prompt.imprimir(pessoa);
-        }
+        // List<Object> listaPessoas = controle.getPessoas();
+        // for (Object pessoa : listaPessoas) {
+        //     Prompt.imprimir(pessoa);
+        // }
 
         Prompt.pressionarEnter();
     }
