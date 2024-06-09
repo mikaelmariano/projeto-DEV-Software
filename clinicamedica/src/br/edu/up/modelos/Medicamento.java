@@ -11,6 +11,7 @@ public class Medicamento extends Fornecedor {
     public void setNomeMedicamento(String nomeMedicamento) {
         this.nomeMedicamento = nomeMedicamento;
     }
+    
 
     public Medicamento(String nome, String telefone, String email, String endereco, String cNPJ, String marca,
             String nomeMedicamento) {
@@ -26,4 +27,5 @@ public class Medicamento extends Fornecedor {
     public String toCSV() {
         return nomeMedicamento + ";" + CNPJ + ";" + Marca;
     }
+
 }
