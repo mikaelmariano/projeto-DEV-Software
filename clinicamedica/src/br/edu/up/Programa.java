@@ -2,6 +2,7 @@ package br.edu.up;
 
 import br.edu.up.controles.ControleAgendamento;
 import br.edu.up.controles.ControleFornecedor;
+import br.edu.up.controles.ControleMedicamentos;
 import br.edu.up.controles.ControlePaciente;
 import br.edu.up.telas.TelaPrincipal;
 
@@ -11,7 +12,8 @@ public class Programa {
         ControlePaciente.inicializarArquivoPacientes();
         ControleAgendamento.inicializarArquivoAgendamentos();
         ControleFornecedor.inicializarArquivoFornecedores();
-        
+        ControleMedicamentos.inicializarArquivoMedicamentos();
+
         TelaPrincipal tela = new TelaPrincipal();
         tela.mostrarMenuPrincipal();
     }
