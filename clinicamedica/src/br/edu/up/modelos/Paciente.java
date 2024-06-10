@@ -1,37 +1,59 @@
 package br.edu.up.modelos;
 
 public class Paciente {
-
-    protected String nome;
-    protected String telefone;
-    protected String email;
-    protected String endereco;
     private String cpf;
     private String sus;
+    private String nome;
+    private String dtNascimento;
+    private String telefone;
+
+    // Construtor
+    public Paciente(String cpf, String sus, String nome, String dtNascimento, String telefone) {
+        this.cpf = cpf;
+        this.sus = sus;
+        this.nome = nome;
+        this.dtNascimento = dtNascimento;
+        this.telefone = telefone;
+    }
+
+    // Getters e Setters
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public String getSus() {
-        return this.sus;
+        return sus;
     }
 
-    public String getCpf() {
-        return this.cpf;
-    }
-
-    public Paciente(String nome, String telefone, String email, String endereco, String cpf, String sus) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.endereco = endereco;
-        this.cpf = cpf;
+    public void setSus(String sus) {
         this.sus = sus;
     }
 
-    public String toCSV() {
-        return nome + ";" + telefone + ";" + email + ";" + endereco + ";" + cpf + ";" + sus + ";";
+    public String getNome() {
+        return nome;
     }
 
-    @Override
-    public String toString() {
-        return "Nome: " + nome + ", Telefone: " + telefone + ", Email: " + email + ", Endereço: " + endereco + ", CPF: " + cpf + ", SUS: " + sus;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(String dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }
