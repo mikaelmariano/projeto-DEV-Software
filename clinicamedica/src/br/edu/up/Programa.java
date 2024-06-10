@@ -11,7 +11,8 @@ public class Programa {
     public static void main(String[] args) {
         // Inicializa os arquivos de Dados.
         ControlePaciente.inicializarArquivoPacientes();
-        ControleAgendamento.inicializarArquivoAgendamentos();
+	    ControleMedico.inicializarArquivoMedicos();
+	    ControleAgendamento.inicializarArquivoAgendamentos();
         ControleFornecedor.inicializarArquivoFornecedores();
         ControleMedicamentos.inicializarArquivoMedicamentos();
         ControleConsulta.inicializarArquivoConsultas();

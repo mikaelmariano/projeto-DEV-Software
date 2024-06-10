@@ -1,88 +1,49 @@
 package br.edu.up.modelos;
 
 public class Medico {
-
+    private String cpf;
+    private String crm;
     private String nome;
-    private String telefone;
-    private String email;
-    private String endereco;
-    private String CRM;
-    private String CPF;
-    private String Especialidade;
+    private String especialidade;
 
-    public Medico(String nome, String telefone, String email, String endereco, String CRM, String CPF, String Especialidade) {
+    // Construtor
+    public Medico(String cpf, String crm, String nome, String especialidade) {
+        this.cpf = cpf;
+        this.crm = crm;
         this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.endereco = endereco;
-        this.CRM = CRM;
-        this.CPF = CPF;
-        this.Especialidade = Especialidade;
+        this.especialidade = especialidade;
     }
+
+    // Getters e Setters
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+
     public String getNome() {
         return nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public String getCRM() {
-        return CRM;
-    }
-
-    public String getCPF() {
-        return CPF;
-    }
-
-    public String getEspecialidade() {
-        return Especialidade;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public void setCRM(String CRM) {
-        this.CRM = CRM;
-    }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public String getEspecialidade() {
+        return especialidade;
     }
 
     public void setEspecialidade(String especialidade) {
-        this.Especialidade = especialidade;
+        this.especialidade = especialidade;
     }
-
-    public String toCSV() {
-        return nome + ";" + telefone + ";" + email + ";" + endereco + ";" + CPF + ";" + CRM + ";;" + Especialidade;
-    }
-
-    @Override
-    public String toString() {
-        return "Nome: " + nome + ", Telefone: " + telefone + ", Email: " + email + ", Endereço: " + endereco + ", CRM: "
-                + CRM + ", CPF: " + CPF + ", Especialidade: " + Especialidade;
-    }
-
 }
