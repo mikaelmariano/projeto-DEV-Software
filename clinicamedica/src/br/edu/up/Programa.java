@@ -4,6 +4,7 @@ import br.edu.up.controles.ControleAgendamento;
 import br.edu.up.controles.ControleConsulta;
 import br.edu.up.controles.ControleFornecedor;
 import br.edu.up.controles.ControleMedicamentos;
+import br.edu.up.controles.ControleMedico;
 import br.edu.up.controles.ControlePaciente;
 import br.edu.up.telas.TelaPrincipal;
 
