@@ -1,1 +1,4 @@
 id;realizada;sus;paciente;crm;medico;data
+1;X;1;1;1;1;1
+2;X;123;gabriela;124;bruno;1991-12-12
+3;X;123;gabriel;124;bruno;1991-12-12

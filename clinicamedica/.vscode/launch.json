@@ -5,6 +5,13 @@
             "name": "Programa",
             "request": "launch",
             "mainClass": "br.edu.up.Programa",
+            "projectName": "clinicamedica_4166618a"
+        },
+        {
+            "type": "java",
+            "name": "Programa",
+            "request": "launch",
+            "mainClass": "br.edu.up.Programa",
             "projectName": "clinicamedica_876d9a09"
         },
         {

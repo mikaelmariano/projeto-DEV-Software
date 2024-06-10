@@ -1,0 +1,4 @@
+id;nomePaciente;nomeMedico;dataAgendamento;sintomas
+1;1;1;1;febre
+2;gabriela;bruno;1991-12-12;FEBRE
+3;gabriel;bruno;1991-12-12;barriga doendo
