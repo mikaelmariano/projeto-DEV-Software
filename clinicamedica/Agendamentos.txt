@@ -1,0 +1,1 @@
+id;realizada;sus;paciente;crm;medico;data

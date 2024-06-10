@@ -1,30 +1,59 @@
 package br.edu.up.modelos;
 
 public class Fornecedor {
+    private String cnpj;
+    private String nome;
+    private String telefone;
+    private String endereco;
+    private String marca;
 
-    protected String nome;
-    protected String telefone;
-    protected String email;
-    protected String endereco;
-    protected String CNPJ;
-    protected String Marca;
-
-    public Fornecedor(String nome, String telefone, String email, String endereco, String cNPJ, String marca) {
+    // Construtor
+    public Fornecedor(String cnpj, String nome, String telefone, String endereco, String marca) {
+        this.cnpj = cnpj;
         this.nome = nome;
         this.telefone = telefone;
-        this.email = email;
         this.endereco = endereco;
-        this.CNPJ = cNPJ;
-        this.Marca = marca;
+        this.marca = marca;
     }
 
-    public String toCSV() {
-        return nome + ";" + telefone + ";" + email + ";" + endereco + ";" + CNPJ + ";" + Marca;
+    // Getters e Setters
+    public String getCnpj() {
+        return cnpj;
     }
 
-    @Override
-    public String toString() {
-        return "Nome: " + nome + ", Telefone: " + telefone + ", Email: " + email + ", Endereço: " + endereco
-                + ", CNPJ: " + CNPJ + ", Marca: " + Marca;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 }
