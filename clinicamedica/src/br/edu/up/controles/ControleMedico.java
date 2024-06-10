@@ -22,15 +22,6 @@ public class ControleMedico {
         }
     }
 
-    public static void inicializarArquivoMedicos() {
-        List<String[]> medicos = gerenciadorDeArquivos.lerArquivo(CAMINHO_MEDICOS);
-        if (medicos.isEmpty()) {
-            // Adiciona o cabeçalho ao arquivo
-            String[] header = {"cpf","crm","nome","especialidade"};
-            gerenciadorDeArquivos.adicionarLinha(CAMINHO_MEDICOS, header);
-        }
-    }
-
     public static void cadastrarMedico(String cpf, String crm, String nome, String especialidade) {
         Medico medico = new Medico(cpf, crm, nome, especialidade);
         gravarMedico(medico);
