@@ -2,5 +2,3 @@
 # Clinica Médica
 
 # Diagrama Básico
-
-![Diagrama](/Diagrama.png)
