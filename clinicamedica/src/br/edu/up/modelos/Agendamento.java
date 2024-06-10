@@ -1,44 +1,79 @@
 package br.edu.up.modelos;
 
-import java.time.LocalDateTime;
-
 public class Agendamento {
-    private String paciente;
-    private String medico;
-    private LocalDateTime dataHora;
+    private int id;
+    private String realizada;
+    private String sus;
+    private String nomePaciente;
+    private String crm;
+    private String nomeMedico;
+    private String data;
 
-    public Agendamento(String paciente, String medico, LocalDateTime dataHora) {
-        this.paciente = paciente;
-        this.medico = medico;
-        this.dataHora = dataHora;
+    // Construtor
+    public Agendamento(int id, String sus, String nomePaciente, String crm, String nomeMedico, String data) {
+        this.id = id;
+        this.realizada = ""; // Campo vazio no momento do cadastro do agendamento
+        this.sus = sus;
+        this.nomePaciente = nomePaciente;
+        this.crm = crm;
+        this.nomeMedico = nomeMedico;
+        this.data = data;
     }
 
-    public String getPaciente() {
-        return paciente;
+    // Getters e Setters
+    public int getId() {
+        return id;
     }
 
-    public void setPaciente(String paciente) {
-        this.paciente = paciente;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getMedico() {
-        return medico;
+    public String getRealizada() {
+        return realizada;
     }
 
-    public void setMedico(String medico) {
-        this.medico = medico;
+    public void setRealizada(String realizada) {
+        this.realizada = realizada;
     }
 
-    public LocalDateTime getDataHora() {
-        return dataHora;
+    public String getSus() {
+        return sus;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+    public void setSus(String sus) {
+        this.sus = sus;
     }
 
-    @Override
-    public String toString() {
-        return "Agendamento [paciente=" + paciente + ", medico=" + medico + ", dataHora=" + dataHora + "]";
+    public String getNomePaciente() {
+        return nomePaciente;
+    }
+
+    public void setNomePaciente(String nomePaciente) {
+        this.nomePaciente = nomePaciente;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+
+    public String getNomeMedico() {
+        return nomeMedico;
+    }
+
+    public void setNomeMedico(String nomeMedico) {
+        this.nomeMedico = nomeMedico;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }
