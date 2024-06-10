@@ -27,7 +27,7 @@ public class Paciente {
     }
 
     public String toCSV() {
-        return nome + ";" + telefone + ";" + email + ";" + endereco + ";" + cpf + ";" + sus + ";;;;";
+        return nome + ";" + telefone + ";" + email + ";" + endereco + ";" + cpf + ";" + sus + ";";
     }
 
     @Override

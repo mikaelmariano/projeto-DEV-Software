@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.edu.up.controles.ControleDeAgendamentos;
 import br.edu.up.controles.ControleDePessoas;
+import br.edu.up.controles.PacienteController;
 import br.edu.up.util.Prompt;
 import br.edu.up.modelos.Paciente;
 import br.edu.up.modelos.Medico;
@@ -84,7 +85,7 @@ public class TelaPrincipal {
         String sus = Prompt.lerLinha("SUS: ");
 
         Paciente paciente = new Paciente(nome, telefone, email, endereco, cpf, sus);
-        controle.incluir(paciente);
+        PacienteController.IncluirPaciente(paciente);
 
         Prompt.imprimir("Paciente incluído com sucesso!");
         Prompt.pressionarEnter();

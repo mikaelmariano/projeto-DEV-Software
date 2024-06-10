@@ -44,7 +44,7 @@ public class Medico {
     }
 
     public String getEspecialidade() {
-        return especialidade;
+        return Especialidade;
     }
 
     public void setNome(String nome) {
@@ -72,7 +72,7 @@ public class Medico {
     }
 
     public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+        this.Especialidade = especialidade;
     }
 
     public String toCSV() {
